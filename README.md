@@ -10,8 +10,6 @@ A collection of programming assignments and practice work completed for **CS 31 
 
 ---
 
-## 📂 Repository Structure---
-
 ## 🛠️ Topics Covered
 - **C++ Basics** → Variables, types, operators  
 - **Control Flow** → If/else, switch, loops  
@@ -27,7 +25,7 @@ A collection of programming assignments and practice work completed for **CS 31 
 ## 🚀 Running the Code
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/UCLA_CS31_W25_projects.git
+git clone https://github.com/aarnav-11/UCLA_CS31_W25_projects.git
 cd UCLA_CS31_W25_projects
 
 # Compile and run (example: project1)
