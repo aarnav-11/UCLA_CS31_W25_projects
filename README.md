@@ -2,7 +2,7 @@ A collection of programming assignments and practice work completed for **CS 31 
 
 ---
 
-## 📚 Course Overview
+## Course Overview
 **CS 31** is UCLA’s foundational programming course, focusing on:
 - C++ programming fundamentals
 - Algorithmic problem-solving
@@ -10,7 +10,7 @@ A collection of programming assignments and practice work completed for **CS 31 
 
 ---
 
-## 🛠️ Topics Covered
+## Topics Covered
 - **C++ Basics** → Variables, types, operators  
 - **Control Flow** → If/else, switch, loops  
 - **Functions** → Parameters, scope, return values  
@@ -19,6 +19,12 @@ A collection of programming assignments and practice work completed for **CS 31 
 - **File I/O** → Reading/writing files  
 - **OOP** → Classes, constructors, destructors  
 - **Debugging** → `gdb`, logical debugging
+
+---
+
+## Academic Integrity
+This repository is for personal reference and portfolio purposes only.
+If you are currently enrolled in CS 31, do not copy solutions — doing so may violate UCLA’s academic integrity policies.
 
 ---
 
@@ -31,3 +37,5 @@ cd UCLA_CS31_W25_projects
 # Compile and run (example: project1)
 g++ project1/main.cpp -o project1
 ./project1
+
+
