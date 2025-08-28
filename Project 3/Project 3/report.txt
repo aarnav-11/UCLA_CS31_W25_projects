@@ -1,0 +1,157 @@
+Obstacles I overcame:
+
+The biggest obstacle I had to overcome was trying to make code that included just the value zero but not leading zeroes for all possible pass and defect cases. To handle this I broke the problem down into smaller pieces like suggested in the FAQ section.I first rejected all counts where Q was 0. After that I added an if statement that basically expected a valid output after a p or d was found in the code. If the p or d was followed with a 0 it was allowed, however, if this 0 was followed by a digit again, I returned a fail statement, which meant leading zeroes were negated but normal zeroes were kept into the code. It took a lot of logical reasoning to come up with these and and or statements for this particular case.
+I also assumed that my passQC function and defectQC function would be coded the same way. For some reason though both my functions were the same practically, my defectQC function would not output the correct output. After a lot of debugging, I had to rewrite the entire function in a different way. This was annoying and challenging.
+I also saw myself choosing between for and while loops often, at times for loops wouldn't compile but at other times while loops would lead to the wrong result. I eventually had to just imagine executing the functions and after a bit of trial and error I got the code going.
+
+Pseudo code:
+
+call the function isValidQC that takes input of a string, results
+If the results is an empty string return false
+if results does not begin with Q then return false
+declare a size_t i and equate it to 1
+while i is less than the size of the string results,
+if there are leading zeroes in the number return false,
+initialize a variable that is total tests equal to 0
+while i < the size of the results and it loops to a digit,
+not the digit down and multiply it by ten, then add the next digit to it until there is no longer a digit.
+if the found number is zero or negative then return false
+declare hasP, hasD booleans and numP,numD integers = 0.
+while i is less than the size of the string and a p or d is encountered while looping the string,
+if there are leading zeroes, goes beyond the size of the string or is not a digit.
+If it encountered a char 'p' while it was within the string and it is a digit after,
+Extract p like totalTests was extracted before,
+set hasP to true.
+Repeat the same process for d.
+if p is read first, make sure the next char is a d else return false,
+repeat the process to log the number.
+if d is read first, do the same process as above but for p.
+if there are no 'p's or no 'd's or the number of 'p's plus 'd's does not equal the value assigned ahead of 'Q' then return false.
+Repeat the process for the next batch if there is one.
+Return true if it passes all the tests constantly.
+
+call the function batches that returns an integer value after accepting a string value
+if it fails the isValid function return -1.
+loop through the string and if a 'Q' is found then add one count to the variable totalB.
+Repeat till the string is traversed,
+return the final value of totalB.
+
+call the function totalQC that returns an integer from a string input
+if the string value satisfies the isValid function,
+add the result from the defectQC function and the passQC function together
+return the totalPD value,
+otherwise return -1
+
+call the function passQC that returns an integer value from a string input
+intitialize i and totalP variables =0,
+if the string fails the isValidQC function then return -1.
+iterate through the entire string,
+find p in the string,
+if p is found move to the number after it,
+if it is  a number after p,
+extract and store the number.
+Add this number to the varoable, totalP
+repeat until the string is fully traversed.
+return the totalP value.
+
+call the function defectQC that returns an integer value from a string input
+intitialize i and totalD variables =0,
+if the string fails the isValidQC function then return -1.
+iterate through the entire string,
+find d in the string,
+if d is found move to the number after it,
+if it is  a number after d,
+extract and store the number.
+Add this number to the varoable, totalP
+repeat until the string is fully traversed.
+return the totalD variable value.
+return the totalD value.
+
+Test cases (All listed were handled correctly):
+
+Testing isValidQC:
+
+2p1d1- base case should run
+""- case with an empty string
+Q35p20d15- case with larger numbers to see what p returns
+Q2p0d2- case where p is equal to zero
+Q5dp5- case with missing numbers for p
+Q1pd1- case with missing numbers for d
+Q3p2d1Q11d6p5- case with two batches to see if the pass results are added together
+Q100d50p50Q1000p999d1- case with large numbers and two batches
+Q100d50.0p50Q1000p999d1- case with a decimal point so it fails
+q1p0d1- case with q small so it fails
+Q5p0003d2- no leading zeroes allowed
+Q5p0d0- number doesn't add up to Q (p + d != Q)
+Q0p0d0- Q cannot be equal to zero
+Q2.0p1.0d1.0- multiple decimal places shouldnt work
+Q2p1d1 Q2p1d1- whitespaces should cause program to fail
+Q21d3P18- p and d should be lowercase
+Q1ap1d1- weird char in the middle should fail
+
+Testing passQC:
+
+Q2p1d1- base case should run
+""- case with an empty string
+Q35p20d15- case with larger numbers to see what p returns
+Q2p0d2- case where p is equal to zero
+Q5dp5- case with missing numbers for p
+Q1pd1- case with missing numbers for d
+Q3p2d1Q11d6p5- case with two batches to see if the pass results are added together
+Q100d50p50Q1000p999d1- case with large numbers and two batches
+Q100d50.0p50Q1000p999d1- case with a decimal point so it fails
+q1p0d1- case with q small so it fails
+Q5p0003d2- no leading zeroes allowed
+Q5p0d0- number doesn't add up to Q (p + d != Q)
+Q0p0d0- Q cannot be equal to zero
+
+Testing defectQC:
+
+Q2p1d1- base case should run
+""- case with an empty string
+Q35p20d15- case with larger numbers to see what p returns
+Q2p2d0- case where d is equal to zero
+Q5dp5- case with missing numbers for p
+Q1pd1- case with missing numbers for d
+Q3p2d1Q11d6p5- case with two batches to see if the pass results are added together
+Q100d50p50Q1000p999d1- case with large numbers and two batches
+Q100d50.0p50Q1000p999d1- case with a decimal point so it fails
+q1p0d1- case with q small so it fails
+Q5p0003d2- no leading zeroes allowed
+Q5p0d0- number doesn't add up to Q (p + d != Q)
+Q0p0d0- Q cannot be equal to zero
+
+
+Testing totalQC:
+
+Q2p1d1- base case should run
+""- case with an empty string
+Q35p20d15- case with larger numbers to see what p returns
+Q2p2d0- case where d is equal to zero
+Q5dp5- case with missing numbers for p
+Q1pd1- case with missing numbers for d
+Q3p2d1Q11d6p5- case with two batches to see if the pass results are added together
+Q100d50p50Q1000p999d1- case with large numbers and two batches
+Q100d50.0p50Q1000p999d1- case with a decimal point so it fails
+q1p0d1- case with q small so it fails
+Q5p0003d2- no leading zeroes allowed
+Q5p0d0- number doesn't add up to Q (p + d != Q)
+Q0p0d0- Q cannot be equal to zero
+Q100d50p50Q1p0d1Q20d15p5- three different batches
+
+Testing batchesQC:
+
+Q2p1d1- base case should run
+""- case with an empty string
+Q35p20d15- case with larger numbers to see what p returns
+Q2p2d0- case where d is equal to zero
+Q5dp5- case with missing numbers for p
+Q1pd1- case with missing numbers for d
+Q3p2d1Q11d6p5- case with two batches to see if the pass results are added together
+Q100d50p50Q1000p999d1- case with large numbers and two batches
+Q100d50.0p50Q1000p999d1- case with a decimal point so it fails
+q1p0d1- case with q small so it fails
+Q5p0003d2- no leading zeroes allowed
+Q5p0d0- number doesn't add up to Q (p + d != Q)
+Q0p0d0- Q cannot be equal to zero
+Q100d50p50Q1p0d1Q20d15p5- three different batches

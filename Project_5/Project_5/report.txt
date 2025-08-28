@@ -1,0 +1,69 @@
+Aarnav Choudhary
+206467915
+Report: Project 5
+
+The bioggest obstacle I faced while coding the project was actually just familiarizing myself with classes and constructors, and declaring variables in them. I also struggled with the logic for if fromCity was equal to toCity, we didn't have to declare any of them and leave them as blank. After attending the most recent class I realized that you can also call logic in the actual constructor which helped a bunch with the overall code.
+
+Other than obviously testing the professor's premade testcases, I also found a few more on a testbank and decided to create some of my own:
+1.
+PlaneFlight shortleg1("Howard", "LAX", "LAS", 49.00, 0);
+    PlaneFlight longleg1("Howard", "LAS", "NYC", 399.00, 2800);
+
+    PlaneFlight sample1("Sample", "Sample", "Sample", 0, 1);
+    FrequentFlyerAccount account1("Howard");
+    assert(shortleg1.getFromCity() == "LAX");
+    assert(shortleg1.getToCity() == "LAS");
+    assert(shortleg1.getName() == "Howard");
+    assert(to_string(shortleg1.getCost()) == "49.000000");
+    assert(to_string(shortleg1.getMileage()) == "-1.000000");
+
+    // account balance starts at zero...
+    assert(std::to_string(account1.getBalance()) == "0.000000");
+    assert(account1.getName() == "Howard");
+    assert(account1.canEarnFreeFlight(3300.00) == false);
+
+    // flights add to an account balance
+    assert(account1.addFlightToAccount(shortleg1) == true);  // returns true because the names match
+    assert(account1.addFlightToAccount(longleg1) == true);   // returns true because the names match
+    assert(std::to_string(account1.getBalance()) == "2799.000000");
+
+    // free flights reduce an account balance
+    if (account1.canEarnFreeFlight(285))
+    {
+        assert(account1.freeFlight("LAS", "LAX", 285, sample1) == true);
+        // Howard earned a free flight...
+        assert(sample1.getName() == "Howard");
+        assert(std::to_string(sample1.getCost()) == "0.000000");
+        assert(sample1.getFromCity() == "LAS");
+        assert(sample1.getToCity() == "LAX");
+        assert(std::to_string(sample1.getMileage()) == "285.000000");
+        // account has been reduced for this free flight...
+        assert(std::to_string(account1.getBalance()) == "2514.000000");
+    }
+    else
+    {
+        assert(false);  // there are enough miles in the account...
+    }
+Although this test case looks similar to the one provided in the specs, it isn't.. I changed the values to check if my program handled invalid inputs. Starting from the top, I changed one of the objects to a mileage of 0 to check if the program converted the mileage to -1. Next, I had to check if the new balance would property calculate throughout the program
+
+2.
+    PlaneFlight f1("Howard", "LAX", "LAS", 65.00, 285);
+    f1.setToCity("LAX");
+    f1.setFromCity("LAS");
+    assert(f1.getToCity() == "LAS");
+    assert(f1.getFromCity() == "LAX");
+I used this test case to test if the program caught the invalid input of whether the city’s were being set the same. In this case, the program was able to catch it and act as it was supposed to.
+
+3.
+    PlaneFlight f3("", "LAX", "JFK", 1000.43, 4);
+    f3.setName("Marc");
+    f3.setCost(-1);
+    f3.setMileage(0);
+    assert(f3.getFromCity() == "LAX");
+    assert(f3.getToCity() == "JFK");
+    assert(f3.getCost() == -1);
+    assert(f3.getName() == "Marc");
+I used this test case to ensure that the mutator functions were correctly modifying the instance object and setting invalid inputs for the mileage and cost. In this case, the mtuators did work and was able to set the empty name to “Marc,” the cost to -1, the mileage to -1.
+
+
+

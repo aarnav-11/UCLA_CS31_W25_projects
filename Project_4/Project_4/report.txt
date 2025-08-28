@@ -1,0 +1,79 @@
+Project 4 report- Aarnav Choudhary - UID: 206467915
+
+Obstacles:
+The biggest onstacle I overcame was with the count floating values function. For the entire duration, I was not able to figure out how to count the total number of '.' in the code, so eventually I decided to create a new function which counts the number of characters that appear in a particular string. This helped prevent some edge cases. What is more is that, I was a bit underconfident with my function 4 because while I could test the actual returned number on the moveLeft function, I couldn't actually test if the array changed corrctly. So I created a few cout statements for what I felt was right to test this with a void function to print the array out.
+
+Test cases:
+I used a set of same strings for all my test cases, they were:
+
+        string fruit[5] = { "apple", "orange", "banana", "peach", "grape" };
+        string fruit1[5] = { "apple", "apple", "apple", "apple", "apple" };
+        string fruit2[5] = { "apple", "apple", "ap312P341le", "apple", "aplle" };
+        string data[5] = { "mamaBbcca", "mamaBbcca", "12,", "98.76", "tyrion" };
+        string data1[5] = { "01.0076", "mamaBbcca", "12", "98.76", "tyrion" };
+        string data2[11] = { "1", "1.", ".1", "01", ".01", "01.", "1 1", "1 ", "1,000,000", "1..0", "." };
+        string data3[11] = { "+", "-",  "- 1", " + 1", "1 + ", ". + 1", " ", " - .1" };
+        string data4[5] = { "aa", "aa",  "aa", "aa", "aa" };
+        string data5[5] = { "                10         ", "90.2", "10   ", "s", "s" };
+        string names[5] = { "Andrew", "Bethany", "Christie", "Danny", "Edward" };
+        string folks[8] = { "samwell", "jon", "margaery", "daenerys", "tyrion", "sansa", "magdalena", "Jon" };
+        string empty[5] = {};
+        string folks1[2] = { "Margaery", "samwell" };
+        string folks2[5] = { "margaery", "samwell", "banana", "peach", "grapE" };
+        string folks3[2] = { "margaerY", "samwell" };
+        string folks4[2] = { "margaery", "samwelL" };
+        string folks5[2] = { "margaery", "Samwell" };
+        string a[6] = { "123", "456", "789", "gamma", "beta", "delta" };
+
+And then used different cassert cases for each of the four functions.
+
+for locateMaximum:
+        assert(locateMaximum(empty, 5) == 0) - used to test edge case of empty array
+        assert(locateMaximum(empty, 0) == -1) - used to test edge case of empty array where there is only one array taken
+        assert(locateMaximum(empty, -1) == -1) - rubbish value for number of strings to include
+        assert(locateMaximum(data2, 11) == 9) - max from a set of numbers
+        assert(locateMaximum(data, 5) == 4) - test to see if it runs as intended
+        assert(locateMaximum(fruit1, 5) == 0) - maximum when all are the same
+        assert(locateMaximum(names, 5) == 4) - maximum when names are capitalized and also to see if program runs
+        
+for countFloatingPointValues
+        assert(countFloatingPointValues(a, 3) == 3) - Tests the case where all three values in a are floating point-like values
+        assert(countFloatingPointValues(data, 5) == 1) - test given by professor, base case
+        assert(countFloatingPointValues(names, 5) == 0) - test where no floats involved
+        assert(countFloatingPointValues(data2, 11) == 6) - test with multiple periods, just a period, leading zeros, commas, spaces.
+        assert(countFloatingPointValues(data2, 0) == -1) - test with only first part of array
+        assert(countFloatingPointValues(empty, 5) == 0) - empty array
+        assert(countFloatingPointValues(data3, 1) == 0) - test for invalid sign
+        assert(countFloatingPointValues(data3, 11) == 0) - test with multiple invalid cases like blanks, negative signs, commas
+        assert(countFloatingPointValues(data5, 5) == 1) - test with random spaces and invalid characters
+
+ for hasNoCapitals
+        assert(hasNoCapitals(a, 6) == true) - random values with numbers
+        assert(hasNoCapitals(empty, 5) == true) - empty string
+        assert(hasNoCapitals(folks, 5) == true) - array has capital but not elements defined
+        assert(hasNoCapitals(folks, 1) == true) - two strings
+        assert(hasNoCapitals(folks1, 0) == true) - true if elements equal to zero
+        assert(hasNoCapitals(folks1, -1) == true) - elements less than 1
+        assert(hasNoCapitals(folks1, 1) == false) - base case
+        assert(hasNoCapitals(folks2, 5) == false) - capital but not at start of word
+        assert(hasNoCapitals(folks3, 2) == false) - same as above
+        assert(hasNoCapitals(folks4, 2) == false) - same
+        assert(hasNoCapitals(folks5, 2) == false) - same
+        assert(hasNoCapitals(data, 5) == false) - base case
+        assert(hasNoCapitals(data, 2) == false) - top but less elements
+        assert(hasNoCapitals(fruit2, 5) == false) - in between numbers
+        
+for shiftLeft
+        assert(shiftLeft(names, 3, 2, "foo") == 2) - base case
+        assert(shiftLeft(data, 5, 2, "aa") == 2) - base
+        assert(shiftLeft(data2, 3, 4000, "aa") == 3) - when amount is larger than n
+        assert(shiftLeft(data2, 0, 2, "aa") == -1) invalid because size is zero
+        assert(shiftLeft(fruit, 3, 5, "aa") == 3) - again amount larger
+        assert(shiftLeft(fruit, 5, 1000, "Marc") == 5) - same
+        assert(shiftLeft(data2, 0, 0, "aa") == -1) - both zero
+        assert(shiftLeft(empty, 5, 5, "empty") == 5) - empty string
+        assert(shiftLeft(empty, 0, 0, "empty") == -1) - both zero
+        assert(shiftLeft(empty, 1, 1, "empty") == 1) - one element
+
+ 
+ 

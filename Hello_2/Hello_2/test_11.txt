@@ -1,0 +1,52 @@
+
+
+
+int* getMax(int *arr, int size){
+int max = *arr;
+for (int i = 0; i < size; i++){
+if (*(arr+i)>max){
+max = *(arr+i);
+}
+}
+return max;
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Triangle{
+private:
+double base, height;
+public:
+Triangle (double mBase, double mHeight) : base(mBase), height(mHeight) {}
+Triangle (double mBase) : base(mBase), height(1.0) {}
+    double area (const Triangle &triangle1){
+return triangle1.base * triangle1.height * 0.5;
+}
+friend void printTriangle (Triangle angle);
+    Triangle operator+(const Triangle &other){
+        return (0.5*base*height + 0.5*other.base*other.height);
+    }
+};
+void printTriangle (Triangle angle){
+cout << angle.base << " " << angle.height << " " << angle.area(angle) << endl;
+}
+
+int main(){
+Triangle angle1 {5,5};
+Triangle angle2 {1};
+printTriangle (angle1);
+printTriangle (angle2);
+    Triangle angle3 = angle1 + angle2;
+    cout << angle3.area(angle3);
+}

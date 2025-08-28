@@ -1,0 +1,49 @@
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Archives and downloads
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+
+# Build outputs / binaries
+build/
+bin/
+out/
+dist/
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+a.out
+*.out
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+
+# Xcode / Apple
+DerivedData/
+*.dSYM/
+*.xcuserstate
+xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+
+# IDE settings
+.vscode/
+.idea/
+
