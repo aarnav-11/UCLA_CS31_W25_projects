@@ -5,9 +5,10 @@ This repository aggregates my CS 31 coursework projects. Each project lives in i
 ## Structure
 - `Project_1/`
 - `Project_2/`
-- `Project 3/`
+- `Project_3/`
 - `Project_4/`
 - `Project_5/`
+- `Project_6/`
 - Additional practice and support folders: `Hello_2/`, `hello/`, `Tic_Tac_Toe/`, `Test for project 2/`, `SFML/`, `netflix UI/`
 
 Zip archives and build artifacts are ignored via `.gitignore`.
@@ -24,4 +25,3 @@ If a project has its own build instructions (Xcode/CMake/Makefile), use those wi
 ## Notes
 - Git author: aarnav-11 <aarnav11@g.ucla.edu>
 - Remote: https://github.com/aarnav-11/UCLA_CS31_W25_projects
-
